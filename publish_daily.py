@@ -80,7 +80,9 @@ def generate_digest(report_body):
     try:
         out = subprocess.run([OLLAMA, "run", MODEL, prompt],
                              capture_output=True, text=True, timeout=280)
-        text = out.stdout.strip()
+        # ollama writes terminal control sequences even when piped: strip them
+        text = re.sub(r"\x1b\[[0-9;?]*[A-Za-z]|\r", "", out.stdout)
+        text = re.sub(r"[ \t]+", " ", text).strip()
         return text if out.returncode == 0 and 40 < len(text) < 2000 else None
     except Exception:
         return None
