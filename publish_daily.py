@@ -62,6 +62,47 @@ def run(*cmd):
     return subprocess.run(cmd, cwd=REPO, capture_output=True, text=True)
 
 
+OLLAMA = str(Path.home() / ".local/opt/ollama/bin/ollama")
+MODEL = "qwen3:30b-a3b-instruct-2507-q4_K_M"
+
+
+def generate_digest(report_body):
+    """Ask the local model for a short market digest. Any failure returns
+    None and the publish proceeds without a digest: the digest is a bonus,
+    never a dependency."""
+    prompt = (
+        "You are writing a short daily digest for a public dataset of remote "
+        "and UAE-workable IT/GRC/cloud/AI job postings. Based only on the "
+        "report below, write 3 to 5 plain sentences: how many relevant and "
+        "new postings, which lanes moved, and anything notable. Factual and "
+        "neutral, no advice, no hype, no bullet points.\n\nREPORT:\n" + report_body
+    )
+    try:
+        out = subprocess.run([OLLAMA, "run", MODEL, prompt],
+                             capture_output=True, text=True, timeout=280)
+        text = out.stdout.strip()
+        return text if out.returncode == 0 and 40 < len(text) < 2000 else None
+    except Exception:
+        return None
+
+
+def with_digest(body):
+    digest = generate_digest(body)
+    if not digest:
+        return body
+    block = ("\n## AI market digest\n\n"
+             "*Written by a local model (qwen3 30B) during the automated "
+             "publish. AI-generated and labeled as such.*\n\n" + digest + "\n")
+    lines = body.splitlines()
+    for i, line in enumerate(lines):
+        if line.startswith("Fetched "):
+            lines.insert(i + 1, block)
+            break
+    else:
+        lines.append(block)
+    return "\n".join(lines)
+
+
 def main():
     if "--wait-random" in sys.argv:
         rng = random.Random(dt.date.today().isoformat())
@@ -75,10 +116,13 @@ def main():
         return 1
     date = src.stem.replace("jobs-report-", "")
     dest = REPORTS / f"{date}.md"
+    import hashlib
     body = sanitize(src.read_text(encoding="utf-8"))
-    changed = not dest.exists() or dest.read_text(encoding="utf-8") != body
+    digest_of_raw = hashlib.sha256(body.encode()).hexdigest()[:16]
+    marker = f"<!-- raw:{digest_of_raw} -->"
+    changed = not dest.exists() or marker not in dest.read_text(encoding="utf-8")
     if changed:
-        dest.write_text(body, encoding="utf-8")
+        dest.write_text(with_digest(body) + "\n" + marker + "\n", encoding="utf-8")
     rebuild_index()
 
     run("git", "add", "-A")
