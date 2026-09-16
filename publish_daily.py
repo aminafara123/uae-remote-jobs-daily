@@ -77,13 +77,30 @@ def generate_digest(report_body):
         "new postings, which lanes moved, and anything notable. Factual and "
         "neutral, no advice, no hype, no bullet points.\n\nREPORT:\n" + report_body
     )
+    import json as _json
+    import urllib.request
+
+    def call_api():
+        req = urllib.request.Request(
+            "http://127.0.0.1:11434/api/generate",
+            data=_json.dumps({"model": MODEL, "prompt": prompt,
+                              "stream": False,
+                              "options": {"temperature": 0.3}}).encode(),
+            headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=280) as r:
+            return _json.loads(r.read()).get("response", "").strip()
+
     try:
-        out = subprocess.run([OLLAMA, "run", MODEL, prompt],
-                             capture_output=True, text=True, timeout=280)
-        # ollama writes terminal control sequences even when piped: strip them
-        text = re.sub(r"\x1b\[[0-9;?]*[A-Za-z]|\r", "", out.stdout)
-        text = re.sub(r"[ \t]+", " ", text).strip()
-        return text if out.returncode == 0 and 40 < len(text) < 2000 else None
+        try:
+            text = call_api()
+        except OSError:
+            # server not running (fresh boot): start it, then retry once
+            subprocess.Popen([OLLAMA, "serve"],
+                             stdout=subprocess.DEVNULL,
+                             stderr=subprocess.DEVNULL)
+            time.sleep(8)
+            text = call_api()
+        return text if 40 < len(text) < 2000 else None
     except Exception:
         return None
 
