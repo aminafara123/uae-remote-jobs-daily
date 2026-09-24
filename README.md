@@ -4,7 +4,7 @@ A living dataset of remote and UAE-workable job postings in IT operations, GRC/c
 
 Each morning (at a randomized time between 08:00 and 12:00 UAE) the pipeline publishes its latest scan here automatically: roughly 2,200 postings pulled from eight public APIs and feeds, filtered to relevant lanes, location-triaged, and deduplicated against everything already seen. **Commits in this repository are made by that automation**, via `publish_daily.py`, which is the whole point: this repo is the pipeline's public heartbeat.
 
-<!-- CHECKED -->Last automated check: 2026-09-23 08:42 UAE<!-- /CHECKED -->
+<!-- CHECKED -->Last automated check: 2026-09-24 10:04 UAE<!-- /CHECKED -->
 
 ## Why this exists
 
@@ -19,6 +19,7 @@ Each daily file lists the postings that passed three gates that day: lane keywor
 <!-- INDEX -->
 | Date | Relevant postings | New that day | Link |
 |---|---|---|---|
+| 2026-09-24 | 250 | 5 | [report](reports/2026-09-24.md) |
 | 2026-09-22 | 250 | 9 | [report](reports/2026-09-22.md) |
 | 2026-09-21 | 71 | 5 | [report](reports/2026-09-21.md) |
 | 2026-09-19 | 72 | 2 | [report](reports/2026-09-19.md) |
