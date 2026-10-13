@@ -4,7 +4,7 @@ A living dataset of remote and UAE-workable job postings in IT operations, GRC/c
 
 Each morning (at a randomized time between 08:00 and 12:00 UAE) the pipeline publishes its latest scan here automatically: roughly 2,200 postings pulled from eight public APIs and feeds, filtered to relevant lanes, location-triaged, and deduplicated against everything already seen. **Commits in this repository are made by that automation**, via `publish_daily.py`, which is the whole point: this repo is the pipeline's public heartbeat.
 
-<!-- CHECKED -->Last automated check: 2026-10-13 11:34 UAE<!-- /CHECKED -->
+<!-- CHECKED -->Last automated check: 2026-10-14 01:48 UAE<!-- /CHECKED -->
 
 ## Why this exists
 
@@ -20,9 +20,12 @@ Each daily file lists the postings that passed three gates that day: lane keywor
 | Date | Relevant postings | New that day | Link |
 |---|---|---|---|
 | 2026-10-13 | 201 | 5 | [report](reports/2026-10-13.md) |
+| 2026-10-12 | 206 | 10 | [report](reports/2026-10-12.md) |
 | 2026-10-11 | 208 | 4 | [report](reports/2026-10-11.md) |
+| 2026-10-10 | 211 | 5 | [report](reports/2026-10-10.md) |
 | 2026-10-09 | 218 | 14 | [report](reports/2026-10-09.md) |
 | 2026-10-08 | 232 | 6 | [report](reports/2026-10-08.md) |
+| 2026-10-07 | 236 | 12 | [report](reports/2026-10-07.md) |
 | 2026-10-06 | 237 | 11 | [report](reports/2026-10-06.md) |
 | 2026-10-05 | 241 | 16 | [report](reports/2026-10-05.md) |
 | 2026-10-04 | 242 | 3 | [report](reports/2026-10-04.md) |
@@ -34,10 +37,14 @@ Each daily file lists the postings that passed three gates that day: lane keywor
 | 2026-09-28 | 244 | 2 | [report](reports/2026-09-28.md) |
 | 2026-09-27 | 241 | 3 | [report](reports/2026-09-27.md) |
 | 2026-09-26 | 239 | 3 | [report](reports/2026-09-26.md) |
+| 2026-09-25 | 243 | 10 | [report](reports/2026-09-25.md) |
 | 2026-09-24 | 249 | 9 | [report](reports/2026-09-24.md) |
+| 2026-09-23 | 252 | 10 | [report](reports/2026-09-23.md) |
 | 2026-09-22 | 250 | 9 | [report](reports/2026-09-22.md) |
 | 2026-09-21 | 71 | 5 | [report](reports/2026-09-21.md) |
+| 2026-09-20 | 71 | 6 | [report](reports/2026-09-20.md) |
 | 2026-09-19 | 72 | 2 | [report](reports/2026-09-19.md) |
+| 2026-09-18 | 76 | 10 | [report](reports/2026-09-18.md) |
 | 2026-09-17 | 75 | 7 | [report](reports/2026-09-17.md) |
 | 2026-09-16 | 79 | 2 | [report](reports/2026-09-16.md) |
 <!-- /INDEX -->
