@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UAE Remote Jobs Daily</title>
+<meta name="description" content="A curated daily feed of remote and Dubai-workable tech jobs, scanned from 10 public sources every morning, deduplicated and filtered.">
+<link rel="alternate" type="application/rss+xml" title="UAE Remote Jobs Daily" href="feed.xml">
+<style>
+  :root { --text: #1f2933; --muted: #5f6b7a; --line: #e3e7ec; --accent: #0b6e4f; --bg: #ffffff; --panel: #f6f8fa; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main, footer { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 48px 0 8px; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 12px; }
+  h2 { font-size: 1.2rem; margin: 40px 0 8px; }
+  p { margin: 0 0 12px; }
+  .pitch { font-size: 1.1rem; color: var(--muted); }
+  ol { padding-left: 1.4em; margin: 0; }
+  li { margin-bottom: 8px; }
+  a { color: var(--accent); }
+  .button { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; margin: 4px 8px 8px 0; }
+  .button.secondary { background: var(--panel); color: var(--accent); border: 1px solid var(--line); }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+  code { font-size: 0.9em; word-break: break-all; }
+  footer { margin-top: 48px; padding-top: 16px; padding-bottom: 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>UAE Remote Jobs Daily</h1>
+    <p class="pitch">A curated daily feed of remote and Dubai-workable tech jobs, scanned from 10 public sources every morning, deduplicated and filtered.</p>
+  </header>
+
+  <h2>How it works</h2>
+  <ol>
+    <li>Each morning a scheduled task on my PC pulls job postings from 10 public job boards, APIs and feeds.</li>
+    <li>It keeps roles in IT operations, GRC and compliance, cloud, and AI automation. It drops roles that are blocked for the UAE, tags each location as eligible, verify or unknown, and checks each one against everything it has seen before, so new postings are listed separately.</li>
+    <li>It publishes the day's report to GitHub and updates the RSS feed.</li>
+  </ol>
+
+  <h2>Latest report</h2>
+  <p>Every report is a plain markdown file on GitHub. The newest one is at the top of the list.</p>
+  <p>
+    <a class="button" href="https://github.com/aminafara123/uae-remote-jobs-daily#recent-scans">See the latest reports</a>
+    <a class="button secondary" href="https://github.com/aminafara123/uae-remote-jobs-daily/tree/main/reports">All reports</a>
+  </p>
+
+  <h2>Subscribe</h2>
+  <div class="panel">
+    <p>Get one email or RSS item a day when a new report is published.</p>
+    <!--
+      PLACEHOLDER: email subscribe form.
+      After creating a free Buttondown account, replace BUTTONDOWN_FORM_URL below
+      with the subscribe page URL (or paste Buttondown's embed form here in place of the link).
+    -->
+    <p>
+      <span class="button secondary" style="opacity:.65;cursor:default">Email digest coming soon</span>
+      <a class="button secondary" href="feed.xml">RSS feed</a>
+    </p>
+    <p>Feed URL: <code>https://aminafara123.github.io/uae-remote-jobs-daily/feed.xml</code></p>
+  </div>
+</main>
+<footer>
+  <p>Built and run by Al Amin Bashir Afara, Dubai. <a href="https://github.com/aminafara123">github.com/aminafara123</a></p>
+  <p>Data comes from public job boards. Listings belong to their posters. Location tags are a best guess, so check each posting before you apply. If my PC is off at publish time, that day's report can be late or missing.</p>
+  <p>Free. No account needed to read the reports.</p>
+</footer>
+</body>
+</html>

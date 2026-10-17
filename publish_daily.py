@@ -15,12 +15,17 @@ import re
 import subprocess
 import sys
 import time
+from email.utils import format_datetime
 from pathlib import Path
+from xml.sax.saxutils import escape
 
 REPO = Path(__file__).resolve().parent
 SOURCE_DIR = Path.home() / "aiProjects/aminWork/job-research/scraper"
 README = REPO / "README.md"
 REPORTS = REPO / "reports"
+FEED = REPO / "docs" / "feed.xml"
+SITE = "https://aminafara123.github.io/uae-remote-jobs-daily"
+BLOB = "https://github.com/aminafara123/uae-remote-jobs-daily/blob/main"
 
 # Lines in the private reports that are personal notes, not market data.
 STRIP_PREFIXES = ("Floor reminder", "Reminder:")
@@ -56,6 +61,37 @@ def rebuild_index():
     text = re.sub(r"(<!-- CHECKED -->).*(<!-- /CHECKED -->)",
                   rf"\1Last automated check: {stamp}\2", text)
     README.write_text(text, encoding="utf-8")
+
+
+def write_feed():
+    """RSS 2.0 feed of the 20 newest reports, served by GitHub Pages."""
+    uae = dt.timezone(dt.timedelta(hours=4))
+    items = []
+    for f in sorted(REPORTS.glob("*.md"), reverse=True)[:20]:
+        kept, new = stats(f.read_text(encoding="utf-8"))
+        day = dt.datetime.strptime(f.stem, "%Y-%m-%d").replace(tzinfo=uae)
+        link = escape(f"{BLOB}/reports/{f.name}")
+        desc = escape(f"{kept} relevant postings, {new} new that day.")
+        items.append(f"""  <item>
+    <title>Job scan {escape(f.stem)}</title>
+    <link>{link}</link>
+    <guid isPermaLink="true">{link}</guid>
+    <pubDate>{format_datetime(day)}</pubDate>
+    <description>{desc}</description>
+  </item>""")
+    FEED.parent.mkdir(exist_ok=True)
+    FEED.write_text(f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>UAE Remote Jobs Daily</title>
+  <link>{SITE}/</link>
+  <atom:link href="{SITE}/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Daily scan of remote and Dubai-workable tech jobs from public job boards.</description>
+  <language>en</language>
+{chr(10).join(items)}
+</channel>
+</rss>
+""", encoding="utf-8")
 
 
 def run(*cmd):
@@ -143,6 +179,11 @@ def main():
     if changed:
         dest.write_text(with_digest(body) + "\n" + marker + "\n", encoding="utf-8")
     rebuild_index()
+    try:
+        write_feed()
+    except Exception as e:
+        # the feed is a bonus, never a reason to skip the publish
+        print("feed generation failed:", e)
 
     run("git", "add", "-A")
     if changed:
