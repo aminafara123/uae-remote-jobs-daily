@@ -2,13 +2,21 @@
 
 A living dataset of remote and UAE-workable job postings in IT operations, GRC/compliance, cloud, and AI automation, collected every day by my [job-scan-automation](https://github.com/aminafara123/job-scan-automation) pipeline.
 
-Each morning (at a randomized time between 08:00 and 12:00 UAE) the pipeline publishes its latest scan here automatically: roughly 2,200 postings pulled from eight public APIs and feeds, filtered to relevant lanes, location-triaged, and deduplicated against everything already seen. **Commits in this repository are made by that automation**, via `publish_daily.py`, which is the whole point: this repo is the pipeline's public heartbeat.
+Each morning (at a randomized time between 08:00 and 12:00 UAE) the pipeline publishes its latest scan here automatically: roughly 4,500 postings pulled from ten public sources and feeds, filtered to relevant lanes, location-triaged, and deduplicated against everything already seen. **Commits in this repository are made by that automation**, via `publish_daily.py`, which is the whole point: this repo is the pipeline's public heartbeat.
 
-<!-- CHECKED -->Last automated check: 2026-10-16 10:36 UAE<!-- /CHECKED -->
+## Use it
+
+- **What you get:** one RSS item a day with that day's count of relevant and new postings and a link to the full report. Email delivery is on the way.
+- **RSS feed:** https://aminafara123.github.io/uae-remote-jobs-daily/feed.xml
+- **Email:** [subscribe here](BUTTONDOWN_FORM_URL) <!-- PLACEHOLDER: replace BUTTONDOWN_FORM_URL after creating the Buttondown account -->
+
+Reports go back to 2026-09-16. The publish runs unattended on a scheduled task. A few days were missed when my PC slept through the publish window, and I backfilled most of them by hand.
+
+<!-- CHECKED -->Last automated check: 2026-10-17 09:58 UAE<!-- /CHECKED -->
 
 ## Why this exists
 
-Job boards show you a moment; a dataset shows you the market. Thirty days of daily reports reveal which postings are fresh, which linger, how fast the good ones close, and how thin the genuinely UAE-eligible remote market really is once you strip the postings that say "Remote" but mean "Remote (US only)".
+Job boards show you a moment. A dataset shows you the market. Thirty days of daily reports reveal which postings are fresh, which linger, how fast the good ones close, and how thin the genuinely UAE-eligible remote market really is once you strip the postings that say "Remote" but mean "Remote (US only)".
 
 ## Reading a report
 
@@ -19,8 +27,10 @@ Each daily file lists the postings that passed three gates that day: lane keywor
 <!-- INDEX -->
 | Date | Relevant postings | New that day | Link |
 |---|---|---|---|
+| 2026-10-17 | 208 | 5 | [report](reports/2026-10-17.md) |
 | 2026-10-16 | 211 | 3 | [report](reports/2026-10-16.md) |
 | 2026-10-15 | 211 | 7 | [report](reports/2026-10-15.md) |
+| 2026-10-14 | 206 | 9 | [report](reports/2026-10-14.md) |
 | 2026-10-13 | 200 | 8 | [report](reports/2026-10-13.md) |
 | 2026-10-12 | 206 | 10 | [report](reports/2026-10-12.md) |
 | 2026-10-11 | 208 | 4 | [report](reports/2026-10-11.md) |
@@ -47,8 +57,6 @@ Each daily file lists the postings that passed three gates that day: lane keywor
 | 2026-09-20 | 71 | 6 | [report](reports/2026-09-20.md) |
 | 2026-09-19 | 72 | 2 | [report](reports/2026-09-19.md) |
 | 2026-09-18 | 76 | 10 | [report](reports/2026-09-18.md) |
-| 2026-09-17 | 75 | 7 | [report](reports/2026-09-17.md) |
-| 2026-09-16 | 79 | 2 | [report](reports/2026-09-16.md) |
 <!-- /INDEX -->
 
 ## About
