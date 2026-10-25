@@ -12,7 +12,7 @@ Each morning (at a randomized time between 08:00 and 12:00 UAE) the pipeline pub
 
 Reports go back to 2026-09-16. The publish runs unattended on a scheduled task. A few days were missed when my PC slept through the publish window, and I backfilled most of them by hand.
 
-<!-- CHECKED -->Last automated check: 2026-10-24 08:58 UAE<!-- /CHECKED -->
+<!-- CHECKED -->Last automated check: 2026-10-25 10:13 UAE<!-- /CHECKED -->
 
 ## Why this exists
 
@@ -27,6 +27,7 @@ Each daily file lists the postings that passed three gates that day: lane keywor
 <!-- INDEX -->
 | Date | Relevant postings | New that day | Link |
 |---|---|---|---|
+| 2026-10-25 | 221 | 4 | [report](reports/2026-10-25.md) |
 | 2026-10-23 | 222 | 9 | [report](reports/2026-10-23.md) |
 | 2026-10-22 | 216 | 9 | [report](reports/2026-10-22.md) |
 | 2026-10-21 | 213 | 6 | [report](reports/2026-10-21.md) |
@@ -56,7 +57,6 @@ Each daily file lists the postings that passed three gates that day: lane keywor
 | 2026-09-25 | 243 | 10 | [report](reports/2026-09-25.md) |
 | 2026-09-24 | 249 | 9 | [report](reports/2026-09-24.md) |
 | 2026-09-23 | 252 | 10 | [report](reports/2026-09-23.md) |
-| 2026-09-22 | 250 | 9 | [report](reports/2026-09-22.md) |
 <!-- /INDEX -->
 
 ## About
