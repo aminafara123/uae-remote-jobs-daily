@@ -7,6 +7,13 @@
   <description>Daily scan of remote and Dubai-workable tech jobs from public job boards.</description>
   <language>en</language>
   <item>
+    <title>Job scan 2026-10-30</title>
+    <link>https://github.com/aminafara123/uae-remote-jobs-daily/blob/main/reports/2026-10-30.md</link>
+    <guid isPermaLink="true">https://github.com/aminafara123/uae-remote-jobs-daily/blob/main/reports/2026-10-30.md</guid>
+    <pubDate>Fri, 30 Oct 2026 00:00:00 +0400</pubDate>
+    <description>221 relevant postings, 8 new that day.</description>
+  </item>
+  <item>
     <title>Job scan 2026-10-28</title>
     <link>https://github.com/aminafara123/uae-remote-jobs-daily/blob/main/reports/2026-10-28.md</link>
     <guid isPermaLink="true">https://github.com/aminafara123/uae-remote-jobs-daily/blob/main/reports/2026-10-28.md</guid>
@@ -138,13 +145,6 @@
     <guid isPermaLink="true">https://github.com/aminafara123/uae-remote-jobs-daily/blob/main/reports/2026-10-07.md</guid>
     <pubDate>Wed, 07 Oct 2026 00:00:00 +0400</pubDate>
     <description>236 relevant postings, 12 new that day.</description>
-  </item>
-  <item>
-    <title>Job scan 2026-10-06</title>
-    <link>https://github.com/aminafara123/uae-remote-jobs-daily/blob/main/reports/2026-10-06.md</link>
-    <guid isPermaLink="true">https://github.com/aminafara123/uae-remote-jobs-daily/blob/main/reports/2026-10-06.md</guid>
-    <pubDate>Tue, 06 Oct 2026 00:00:00 +0400</pubDate>
-    <description>237 relevant postings, 11 new that day.</description>
   </item>
 </channel>
 </rss>
